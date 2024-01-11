@@ -79,6 +79,7 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
     )
     return conn
 
+
 def main():
     """
     Main function to retrieve user data from database and log to console
