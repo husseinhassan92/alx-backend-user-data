@@ -61,3 +61,23 @@ def get_logger() -> logging.Logger:
     logger.addHandler(stream_handler)
 
     return logger
+
+
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """
+    Returns a MySQLConnection object for accessing Personal Data database
+
+    Returns:
+        A MySQLConnection object using connection details from
+        environment variables
+    """
+    username = environ.get("PERSONAL_DATA_DB_USERNAME", "root")
+    password = environ.get("PERSONAL_DATA_DB_PASSWORD", "")
+    host = environ.get("PERSONAL_DATA_DB_HOST", "localhost")
+    db_name = environ.get("PERSONAL_DATA_DB_NAME")
+
+    data = mysql.connector.connection.MySQLConnection(user=username,
+                                                      password=password,
+                                                      host=host,
+                                                      database=db_name)
+    return data
