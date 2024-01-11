@@ -3,11 +3,11 @@
 Script for handling Personal Data
 """
 
-from typing import List
+import os
 import re
 import logging
-import os
 import mysql.connector
+from typing import List
 
 
 class RedactingFormatter(logging.Formatter):
@@ -70,10 +70,10 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
     db_name = os.getenv("PERSONAL_DATA_DB_NAME", "")
     db_user = os.getenv("PERSONAL_DATA_DB_USERNAME", "root")
     db_pwd = os.getenv("PERSONAL_DATA_DB_PASSWORD", "")
-    connection = mysql.connector.connect(
+    conn = mysql.connector.connect(
         host=db_host,
         user=db_user,
         password=db_pwd,
         database=db_name,
     )
-    return connection
+    return conn
