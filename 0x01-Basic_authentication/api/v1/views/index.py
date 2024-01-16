@@ -22,5 +22,14 @@ def stats() -> str:
     """
     from models.user import User
     stats = {}
-    stats['users'] = User.count()
+    stats['users'] = User.count()@app_views.route('/unauthorized/',
+                                                  strict_slashes=False)
+
+
+def unauthorized() -> None:
+    """GET /api/v1/unauthorized
+    Return:
+      - Unauthorized error.
+    """
+    abort(401)
     return jsonify(stats)
