@@ -1,6 +1,5 @@
-# Simple API
-
-Simple HTTP API for playing with `User` model.
+# Session Authentication
+This project contains tasks for learning to authenticate a user through session authentication.
 
 
 ## Files
